@@ -11,7 +11,7 @@ pa = pyanova.PyAnova(auto_connect=False)
 
 devices = pa.discover(list_all=False, dev_mac_pattern=re.compile('^F4:5E:AB'), timeout=3)
 
-print devices
+print (devices)
 
 try:
   pa.connect_device(devices[0])
