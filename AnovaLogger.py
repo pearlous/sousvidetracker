@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 
-
 # Connect to the device
 # You may need to start and stop the Anova with the app to get bluetooth to be listening
 
