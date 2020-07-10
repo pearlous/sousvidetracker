@@ -58,13 +58,15 @@ SVtimerState = SVtimerStatus.rsplit(' ',1)[1]
 
 import csv
 
-with open(SVuser + '-' + SVcookName + '.csv', 'w') as f:
+with open(SVnow.strftime("%m-%d-%Y-%H-%M") + '.csv', 'w') as f:
   fieldnames = ['Date', 'User', 'Cook Name', 'Target Temp', 'Current Temp', 'Timer Start', 'Current Timer', 'Timer Status', 'Unit', 'Status']
   thewriter = csv.DictWriter(f, fieldnames=fieldnames)
   thewriter.writeheader()
   while float(SVcurrentTemp) < float(SVtargetTemp) :
     print('Not up to temp yet...')
     SVcurrentTemp = pa.get_current_temperature()
+    SVnow = datetime.now()
+    SVformattedDate = SVnow.strftime('%c')
     # Print to CSV
     print(SVformattedDate, SVuser, SVcookName, SVtargetTemp, SVcurrentTemp, SVcookTime, SVtimerNow, SVtimerState, SVtempUnit, SVstatus)
     thewriter.writerow({'Date': SVformattedDate, 'User' : SVuser, 'Cook Name' : SVcookName, 'Target Temp' : SVtargetTemp, 'Current Temp' : SVcurrentTemp, 'Timer Start' : SVcookTime, 'Current Timer' : SVtimerNow, 'Timer Status' : SVtimerState, 'Unit' : SVtempUnit, 'Status' : SVstatus})   
