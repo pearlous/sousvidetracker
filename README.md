@@ -1,7 +1,9 @@
 # sousvidetracker
 Anova Sous Vide Metric Logger
 
-I made this change on the RPi.
+https://github.com/dfrankland/sous-vide/
 
-This is my second change
+pip3 install pyanova
+
+https://c3v6a2vy.github.io/pyanova/
 
